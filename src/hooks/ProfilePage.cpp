@@ -17,6 +17,11 @@ class $modify(CKProfilePage, ProfilePage) {
 
     };
 
+    void onClose(CCObject* sender) {
+        GameLevelManager::sharedState()->m_levelCommentDelegate = nullptr;
+
+    }
+
     void loadCommentsFinished(CCArray* comments, const char* key) {
         ProfilePage::loadCommentsFinished(comments, key);
 
