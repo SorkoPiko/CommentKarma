@@ -7,8 +7,19 @@
 		"ios": "2.206"
 	},
 	"id": "sorkopiko.commentkarma",
-	"name": "CommentKarma",
-	"version": "v0.1.0",
+	"name": "Comment Karma",
+	"version": "v1.0.0",
 	"developer": "SorkoPiko",
-	"description": "Adds a Comment Karma system, similar to Reddit"
+	"description": "Adds a Comment Karma system, similar to Reddit",
+	"links": {
+		"source": "https://github.com/SorkoPiko/CommentKarma",
+		"community": "https://discord.gg/8uPFxhxBX9"
+	},
+	"dependencies": [
+		{
+			"id": "geode.node-ids",
+			"version": ">=v1.13.1",
+			"importance": "required"
+		}
+	]
 }
