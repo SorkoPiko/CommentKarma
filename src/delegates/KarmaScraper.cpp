@@ -11,5 +11,5 @@ void KarmaScraper::loadCommentsFinished(CCArray* comments, const char* key) {
 }
 
 void KarmaScraper::loadCommentsFailed(char const *key) {
-    m_callback(new CCArray(), false);
+    m_callback(CCArray::create(), false);
 }
