@@ -8,7 +8,7 @@
 	},
 	"id": "sorkopiko.commentkarma",
 	"name": "Comment Karma",
-	"version": "v1.1.0-prerelease.1",
+	"version": "v1.1.0",
 
 	"developer": "SorkoPiko",
 	"description": "Adds a Comment Karma system, similar to Reddit",

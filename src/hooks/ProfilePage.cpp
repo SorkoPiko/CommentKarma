@@ -68,7 +68,6 @@ class $modify(CKProfilePage, ProfilePage) {
         }
 
         if (const auto cachedKarma = KarmaCache::getKarma(m_score->m_userID)) {
-            KarmaCache::setKarma(m_score->m_userID, m_fields->m_karma);
             showKarma(cachedKarma);
             return;
         }
@@ -112,10 +111,6 @@ class $modify(CKProfilePage, ProfilePage) {
 
     void onCommentsLoaded(CCArray* comments) {
         const auto newArray = CCArrayExt<GJComment*>(comments);
-        if (newArray.size() == 0) {
-            showKarma(m_fields->m_karma);
-            return;
-        }
 
         for (const auto comment: newArray) {
             if (const auto [fst, snd] = m_fields->m_commentIDs.insert(fmt::format("{}{}", comment->m_commentID, comment->m_levelID)); !snd) continue;
