@@ -5,6 +5,5 @@ Karma is calculated by the sum of all your comments' likes.
 
 ## Features
 * Shows your Comment Karma on your profile page.
-* Won't get rate limited.
 
 **one-day mod** challenge (2/7)

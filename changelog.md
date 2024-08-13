@@ -1,5 +1,8 @@
 # Comment Karma Changelog
 
+## 1.1.1
+* Added No Rate Limit as a dependency.
+
 ## 1.1.0
 * Removed a possibility to get rate limited.
 

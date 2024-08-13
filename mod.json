@@ -8,7 +8,7 @@
 	},
 	"id": "sorkopiko.commentkarma",
 	"name": "Comment Karma",
-	"version": "v1.1.0",
+	"version": "v1.1.1",
 
 	"developer": "SorkoPiko",
 	"description": "Adds a Comment Karma system, similar to Reddit",
@@ -21,6 +21,11 @@
 			"id": "geode.node-ids",
 			"version": ">=v1.13.1",
 			"importance": "required"
+		},
+		{
+			"id": "sorkopiko.noratelimit",
+			"version": ">=v1.0.0",
+			"importance": "recommended"
 		}
 	]
 }

@@ -2,7 +2,6 @@
 #include <Geode/ui/LoadingSpinner.hpp>
 #include "../delegates/KarmaScraper.hpp"
 #include "../managers/KarmaCache.hpp"
-#include "../managers/RequestStutter.hpp"
 
 using namespace geode::prelude;
 
@@ -92,27 +91,11 @@ class $modify(CKProfilePage, ProfilePage) {
             onCommentsLoaded(comments);
             return;
         }
-        if (const auto time = RequestStutter::getRequestTime(); time > 0) {
-            this->getScheduler()->scheduleSelector(
-                schedule_selector(CKProfilePage::getLevelComments),
-                this,
-                1,
-                0,
-                time,
-                false
-            );
-        } else getLevelComments(0);
-    }
-
-    void getLevelComments(float dt) {
-        const auto glm = GameLevelManager::sharedState();
         glm->getLevelComments(m_score->m_userID, m_fields->m_page, 0, 1, CommentKeyType::User);
     }
 
     void onCommentsLoaded(CCArray* comments) {
-        const auto newArray = CCArrayExt<GJComment*>(comments);
-
-        for (const auto comment: newArray) {
+        for (const auto newArray = CCArrayExt<GJComment*>(comments); const auto comment: newArray) {
             if (const auto [fst, snd] = m_fields->m_commentIDs.insert(fmt::format("{}{}", comment->m_commentID, comment->m_levelID)); !snd) continue;
             m_fields->m_karma += comment->m_likeCount;
         }
