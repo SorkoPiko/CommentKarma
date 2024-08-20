@@ -9,13 +9,19 @@
 	"id": "sorkopiko.commentkarma",
 	"name": "Comment Karma",
 	"version": "v1.1.2",
-
 	"developer": "SorkoPiko",
 	"description": "Adds a Comment Karma system, similar to Reddit",
 	"links": {
 		"source": "https://github.com/SorkoPiko/CommentKarma",
 		"community": "https://discord.gg/8uPFxhxBX9"
 	},
+	"tags": [
+		"online",
+		"utility",
+		"enhancement",
+		"joke",
+		"interface"
+	],
 	"dependencies": [
 		{
 			"id": "geode.node-ids",
