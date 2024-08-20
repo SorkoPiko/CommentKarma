@@ -107,6 +107,6 @@ class $modify(CKProfilePage, ProfilePage) {
     void showKarma(const int karma) {
         m_fields->m_karmaLabel->setString(fmt::format("{}",GameToolbox::intToShortString(karma)).c_str());
         m_fields->m_karmaLabel->setVisible(true);
-        m_fields->m_loadingSpinner->removeMeAndCleanup();
+        if (m_fields->m_loadingSpinner) m_fields->m_loadingSpinner->removeMeAndCleanup();
     }
 };

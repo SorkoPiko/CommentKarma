@@ -1,5 +1,8 @@
 # Comment Karma Changelog
 
+## 1.1.2
+* Fixed a crash bug and fixed dependencies.
+
 ## 1.1.1
 * Added No Rate Limit as a dependency.
 
