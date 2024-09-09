@@ -8,7 +8,7 @@
 	},
 	"id": "sorkopiko.commentkarma",
 	"name": "Comment Karma",
-	"version": "v1.1.2",
+	"version": "v1.1.3",
 	"developer": "SorkoPiko",
 	"description": "Adds a Comment Karma system, similar to Reddit",
 	"links": {
@@ -31,7 +31,8 @@
 		{
 			"id": "sorkopiko.noratelimit",
 			"version": ">=v1.0.0",
-			"importance": "required"
+			"importance": "recommended",
+			"platforms": ["win", "macos", "mac-intel", "mac-arm"]
 		}
 	]
 }

@@ -2,6 +2,7 @@
 #include <Geode/ui/LoadingSpinner.hpp>
 #include "../delegates/KarmaScraper.hpp"
 #include "../managers/KarmaCache.hpp"
+#include "../managers/RequestStutter.hpp"
 
 using namespace geode::prelude;
 
@@ -14,7 +15,7 @@ class $modify(CKProfilePage, ProfilePage) {
         int m_karma = 0;
         CCLabelBMFont* m_karmaLabel;
         LoadingSpinner* m_loadingSpinner;
-
+        bool m_nrl = false;
     };
 
     void onClose(CCObject* sender) {
@@ -81,6 +82,8 @@ class $modify(CKProfilePage, ProfilePage) {
         });
         glm->m_levelCommentDelegate = &m_fields->m_karmaScraper;
 
+        m_fields->m_nrl = Loader::get()->isModLoaded("sorkopiko.noratelimit");
+
         onCommentsLoaded(comments);
     }
 
@@ -91,6 +94,25 @@ class $modify(CKProfilePage, ProfilePage) {
             onCommentsLoaded(comments);
             return;
         }
+        if (m_fields->m_nrl) {
+            getLevelComments(0.f);
+            return;
+        }
+        if (const auto time = RequestStutter::getRequestTime(); time > 0) {
+            this->getScheduler()->scheduleSelector(
+                schedule_selector(CKProfilePage::getLevelComments),
+                this,
+                1,
+                0,
+                time,
+                false
+            );
+        } else getLevelComments(0);
+        glm->getLevelComments(m_score->m_userID, m_fields->m_page, 0, 1, CommentKeyType::User);
+    }
+
+    void getLevelComments(float dt) {
+        const auto glm = GameLevelManager::sharedState();
         glm->getLevelComments(m_score->m_userID, m_fields->m_page, 0, 1, CommentKeyType::User);
     }
 
