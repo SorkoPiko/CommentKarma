@@ -118,6 +118,7 @@ class $modify(CKProfilePage, ProfilePage) {
 
     void onCommentsLoaded(CCArray* comments) {
         for (const auto newArray = CCArrayExt<GJComment*>(comments); const auto comment: newArray) {
+            if (!comment) continue;
             if (const auto [fst, snd] = m_fields->m_commentIDs.insert(fmt::format("{}{}", comment->m_commentID, comment->m_levelID)); !snd) continue;
             m_fields->m_karma += comment->m_likeCount;
         }

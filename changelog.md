@@ -1,5 +1,8 @@
 # Comment Karma Changelog
 
+## 1.1.4
+* Version bump
+
 ## 1.1.3
 * Removed No Rate Limit as a dependency. It can still be used with Comment Karma, but it is no longer required.
 
